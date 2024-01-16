@@ -76,6 +76,7 @@ public class PixelTest {
 	}
 	
 	// 	5.	a printPixel method that prints the x and y coordinates separated by commas and then uses composition to add on the color objects information
+	@Test
 	public void testPrintPixel() {
 		
 	}
