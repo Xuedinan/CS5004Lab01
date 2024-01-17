@@ -1,12 +1,20 @@
 package PixelPackage;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import ColorPackage.Color;
 
 import org.junit.Before;
 
+/** 
+ * Edited by: Xuedinan Gao
+ * Assignment: CS5004 Lab01
+ * Date: 01/16/2024
+ * 
+ * A test class for the Pixel class.
+ */
 
 public class PixelTest {
 	
@@ -32,7 +40,9 @@ public class PixelTest {
 		
 	}
 	
-	//	1.	a no argument constructor that sets the x and y to 0 and uses the default color constructor
+	//Pixel Tests
+	
+	// test no argument constructor that sets the x and y to 0 and uses the default color constructor
 	@Test
 	public void testConstXY() {
 		
@@ -42,7 +52,7 @@ public class PixelTest {
 		
 	}
 	
-	// 	2.	a 2 argument constructor that accepts x and y values then uses the default color constructor
+	// test 2 argument constructor that accepts x and y values then uses the default color constructor
 	@Test
 	public void testConst2ArgXY() {
 		
@@ -52,7 +62,7 @@ public class PixelTest {
 		
 	}
 	
-	// 	3.	a color constructor that uses this chaining to set the default x and y values to 0 then sets the color using a sent color
+	// 	test color constructor that uses this chaining to set the default x and y values to 0 then sets the color using a sent color
 	@Test
 	public void testUpdateConst() {
 		
@@ -64,7 +74,7 @@ public class PixelTest {
 		
 	}
 	
-	//  4.	an all-argument constructor
+	//  test all-argument constructor
 	@Test
 	public void testAllConst() {
 		
@@ -75,30 +85,109 @@ public class PixelTest {
 		
 	}
 	
-	// 	5.	a printPixel method that prints the x and y coordinates separated by commas and then uses composition to add on the color objects information
+	// 	test printPixel method that prints the x and y coordinates separated by commas and then uses composition to add on the color objects information
 	@Test
 	public void testPrintPixel() {
 		
-	}
-	
-	
-	//  6.	a moveHor method that increases the x coordinate given a set amount
-	public void testMovHer() {
+		//expected string return from printPixel method
+		String expected1 = "0,0,0,0,0";
+		String expected2 = "10,20,100,200,100";
+		String expected3 = "20,50,50,100,200";
+		
+		assertEquals(expected1, p4.printPixel());
+		assertEquals(expected2, p1.printPixel());
+		assertEquals(expected3, p2.printPixel());
 		
 	}
 	
-	//	7.	a movVer method that increases the y coordinate a given amount
+	
+	//  test moveHor method that increases the x coordinate given a set amount
+	@Test
+	public void testMoveHor() {
+		
+		// increase x value of p1, p2, p3 
+		p1.moveHor(100);
+		p2.moveHor(50);
+		p3.moveHor(0);
+		
+		assertEquals(110, p1.getX());
+		assertEquals(70, p2.getX());
+		assertEquals(20, p3.getX());
+		
+	}
+	
+	//	test movVer method that increases the y coordinate a given amount
+	@Test
 	public void testMovVer() {
 		
+		// increase y value of p1, p2, p3 
+		p1.movVer(10);
+		p2.movVer(20);
+		p3.movVer(0);
+		
+		assertEquals(30, p1.getY());
+		assertEquals(70, p2.getY());
+		assertEquals(20, p3.getY());
+	}
+	
+	//  test moveHorReverse method that decrease the x coordinate given a set amount
+	@Test
+	public void testMoveHorReverse() {
+		
+		// decrease x value of p1, p2, p3 
+		p1.moveHorReverse(5);
+		p2.moveHorReverse(3);
+		p3.moveHorReverse(0);
+		
+		assertEquals(5, p1.getX());
+		assertEquals(17, p2.getX());
+		assertEquals(20, p3.getX());
+		
+	}
+	
+	//	test movVerReverse method that decreases the y coordinate a given amount
+	@Test
+	public void testMovVerReverse() {
+		
+		// decrease x value of p1, p2, p3 
+		p1.movVerReverse(5);
+		p2.movVerReverse(3);
+		p3.movVerReverse(0);
+		
+		assertEquals(15, p1.getY());
+		assertEquals(47, p2.getY());
+		assertEquals(20, p3.getY());
 	}
 	
 	//	8.	a movMeth that moves the x and y coordinates a given amount (use code reduction)
+	@Test
 	public void testMovMeth() {
+		
+		// increase x and y value of p1, p2, p3 
+		p1.movMeth(100, 10);
+		p2.movMeth(50, 20);
+		p3.movMeth(0, 0);
+		
+		assertEquals(110, p1.getX());
+		assertEquals(70, p2.getY());
+		assertEquals(20, p3.getX());
+		assertEquals(20, p3.getY());
 		
 	}
 	
 	//	9.	a setBorder that sets a max and min x and y values
-	public void testSetBoder() {
+	@Test
+	public void testSetBorder() {
+		
+		// set border of p1 and p2
+		p1.setBoder(5, 5, 5, 5);
+		p2.setBoder(1, 1, 1, 1);
+		
+		assertEquals(5, p1.getX());
+		assertEquals(5, p1.getY());
+		assertEquals(1, p2.getX());
+		assertEquals(1, p2.getY());
+		
 		
 	}
 	
