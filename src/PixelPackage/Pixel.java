@@ -26,7 +26,7 @@ public class Pixel {
  * @param color the RGB value of color.
  * 
  */	
-
+	
 	public Pixel() {
 	}
 
@@ -45,19 +45,19 @@ public class Pixel {
 	//setters and getters
 	
 	public int getX() {
-		return x;
+		return checker(x, 'x');
 	}
 
 	public void setX(int x) {
-		this.x = x;
+		this.x = checker(x, 'x');
 	}
 
 	public int getY() {
-		return y;
+		return checker(y, 'y');
 	}
 
 	public void setY(int y) {
-		this.y = y;
+		this.y = checker(y, 'x');
 	}
 
 	public Color getColor() {
@@ -78,22 +78,26 @@ public class Pixel {
 	
 	// method to add value on x
 	public void moveHor(int incremental) {
-		this.x = incremental + this.x;
+		int result = incremental + this.x;
+		this.x = checker(result, 'x');
 	}
 	
 	// method to decrease value on x
 	public void moveHorReverse(int decremental) {
-		this.x = this.x - decremental;
+		int result = this.x - decremental;
+		this.x = checker(result, 'x');
 	}
 	
 	// method to add value on y
 	public void movVer(int incremental) {
-		this.y = incremental + this.y;
+		int result = incremental + this.y;
+		this.y = checker(result, 'y');
 	}
 	
 	// method to decrease value on y
 	public void movVerReverse(int decremental) {
-		this.y = this.y - decremental;
+		int result = this.y - decremental;
+		this.y = checker(result, 'y');
 	}	
 	
 	// add x and y value at the same time
@@ -101,24 +105,56 @@ public class Pixel {
 		moveHor(xIncrease);
 		movVer(yIncrease);
 	}
+
 	
-	public void setBorder(int xMax, int yMax, int xMin, int yMin) {
-		if(this.x > xMax) {
-			this.x = xMax;
-		}
-		if(this.y > yMax) {
-			this.y = yMax;
-		}
-		if(this.x < xMin) {
-			this.x = xMin;
-		}
-		if(this.y < yMin) {
-			this.y = yMin;
-		}
+	// set max and min values of x and y, default is infinity number to cover the case that there is no border input
+
+	public int xMax = 999999999;
+	public int xMin = -99999999;
+	public int yMax = 999999999;
+	public int yMin = -99999999;
+	
+	
+	// get border values for x and y
+	
+	public void setBorder(int xSetMax, int ySetMax, int xSetMin, int ySetMin) {
+		
+		xMax = xSetMax;
+		xMin = xSetMin;
+		
+		yMax = ySetMax;
+		yMin = ySetMin;
 	}
 	
-	public void checker(int value) {
+	// checker method to make sure value is in the border range
+	
+	public int checker(int value, char axis) {
+		
+		switch(axis){
+		
+		case 'x':
+			if(value > xMax) {
+				return xMax;
+			}
+			if(value < xMin) {
+				return xMin;
+			}
+			else{
+				return value;}
+			
+		case 'y':
+			if(value > yMax) {
+				return yMax;
+			}
+			if(value < yMin) {
+				return yMin;
+			} 
+			else {
+				return value;}
+		}
+		
+		return -99999999;
 
 	}
-	
+
 }

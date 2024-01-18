@@ -159,7 +159,7 @@ public class PixelTest {
 		assertEquals(20, p3.getY());
 	}
 	
-	//	8.	a movMeth that moves the x and y coordinates a given amount (use code reduction)
+	//	test movMeth that moves the x and y coordinates a given amount (use code reduction)
 	@Test
 	public void testMovMeth() {
 		
@@ -175,13 +175,13 @@ public class PixelTest {
 		
 	}
 	
-	//	9.	a setBorder that sets a max and min x and y values
+	//	test setBorder that sets a max and min x and y values
 	@Test
 	public void testSetBorder() {
 		
 		// set border of p1 and p2
-		p1.setBoder(5, 5, 5, 5);
-		p2.setBoder(1, 1, 1, 1);
+		p1.setBorder(5, 5, 5, 5);
+		p2.setBorder(1, 1, 1, 1);
 		
 		assertEquals(5, p1.getX());
 		assertEquals(5, p1.getY());
@@ -191,11 +191,28 @@ public class PixelTest {
 		
 	}
 	
-	//	10.	a checker helper method that makes sure values don’t exceed the border amount
+	//	test checker helper method that makes sure values don’t exceed the border amount
+	@Test
 	public void testChecker() {
+		
+		// set border for checking checker() method
+		p1.setBorder(5, 5, 5, 5);
+		p2.setBorder(1, 1, 1, 1);
+		
+		// add amount on p1 and p2
+		p1.moveHor(10000);
+		p1.movVer(10000);
+		p2.moveHor(10000);
+		p2.movVer(10000);
+		
+		
+		// check if x, y value is still in the border
+		
+		assertEquals(5, p1.getX());
+		assertEquals(5, p1.getY());
+		assertEquals(1, p2.getX());
+		assertEquals(1, p2.getY());
 		
 	}
 	
-	//	11.	Once border values are set, make sure the x and y values can only be less than or equal to the max border and greater than or equal to the min border
-
 }
