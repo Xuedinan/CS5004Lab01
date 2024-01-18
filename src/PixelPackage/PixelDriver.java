@@ -2,8 +2,20 @@ package PixelPackage;
 
 import ColorPackage.Color;
 
+/**
+ * Name: Xuedinan Gao
+ * Date: 1/17/2024
+ * 
+ * This is a Driver class for Pixel class.
+ */
+
 public class PixelDriver {
 
+/** Calling method and see if there is any error messages pop up.
+ * 
+ * @param args command line arguments.
+ */	
+	
 	public static void main(String[] args) {
 		
 		//create objective of Color and Pixel
@@ -40,7 +52,7 @@ public class PixelDriver {
 		p.movVerReverse(10000);
 
 		//check if we go over the border
-		System.out.println("\nDecreased y value with 100000, the value of y is " + p.getY() + " , becuase the min value of y is " + p.yMin);
+		System.out.println("\nDecreased y value with 100000, the value of y is " + p.getY() + ", becuase the min value of y is " + p.yMin);
 		
 		
 	}
