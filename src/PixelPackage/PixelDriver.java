@@ -11,36 +11,36 @@ public class PixelDriver {
 		Color c = new Color();
 		Pixel p = new Pixel(10, 20 ,c);
 		
-		//set border with xMax 150, yMax 120, xMin 50, yMin 50
-		System.out.println("First y, is " + p.getY());
+		//check value of x, y 
 		
+		System.out.println("Pixel p has x: " + p.getX() + " y: " + p.getY());
+		
+		// reserve y with 5
 		p.movVerReverse(5);
 		
-		System.out.println("Second y, is " + p.getY());
+		System.out.println("\nAfter move back 5 of y, now y = " + p.getY());
+		
+		// add 100 on x
+		p.moveHor(1000);
+		
+		System.out.println("\nAfter add 1000 on x, now x = " + p.getX());
 		
 		
+		//set border with xMax 100, yMax 120, xMin 50, yMin 50
+		p.setBorder(100, 120, 50, 50);
 		
-		System.out.println("First X, is " + p.getX());
-		
-		p.moveHorReverse(5);
-		
-		System.out.println("Second X, is " + p.getX());
+		System.out.println("\nNow we set border as xMax: " + p.xMax + " xMin: " + p.xMin + " yMax: " + p.yMax + " yMin: " + p.yMin);
 		
 		
-		
-//		p.setBorder(100, 120, 50, 50);
-		
-		System.out.println("xmax: " + p.xMax + " xmin: " + p.xMin);
-		
-		System.out.println("First x, border is 100, x is " + p.getX());
+		// check x, y value after set border
+		System.out.println("\nAfter set border, the max value of x is " + p.getX());
 	
 		
-		
-		// add x value on objective p
-		p.moveHor(100000);
+		// decrease y value with 10000
+		p.movVerReverse(10000);
 
 		//check if we go over the border
-		System.out.println("Second x, border is 100, but move 10000, x is " + p.getX());
+		System.out.println("\nDecreased y value with 100000, the value of y is " + p.getY() + " , becuase the min value of y is " + p.yMin);
 		
 		
 	}

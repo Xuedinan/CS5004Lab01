@@ -85,6 +85,22 @@ public class PixelTest {
 		
 	}
 	
+	// test setters
+	@Test
+	public void testSetters() {
+		
+		p1.setX(10);
+		p1.setY(50);
+		p2.setX(80);
+		p2.setY(100);
+		
+		assertEquals(10, p1.getX());
+		assertEquals(50, p1.getY());
+		assertEquals(80, p2.getX());
+		assertEquals(100, p2.getY());
+		
+	}
+	
 	// 	test printPixel method that prints the x and y coordinates separated by commas and then uses composition to add on the color objects information
 	@Test
 	public void testPrintPixel() {
@@ -201,9 +217,9 @@ public class PixelTest {
 		
 		// add amount on p1 and p2
 		p1.moveHor(10000);
-		p1.movVer(10000);
+		p1.movVerReverse(10000);
 		p2.moveHor(10000);
-		p2.movVer(10000);
+		p2.movVerReverse(10000);
 		
 		
 		// check if x, y value is still in the border
